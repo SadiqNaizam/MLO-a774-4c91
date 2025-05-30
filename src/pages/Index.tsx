@@ -1,14 +1,18 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import MainAppLayout from '../components/layout/MainAppLayout';
+import MainPostFeed from '../components/Dashboard/MainPostFeed';
 
-const Index = () => {
+/**
+ * IndexPage serves as the main feed page for the Social Media Dashboard.
+ * It utilizes the MainAppLayout to structure the overall page and
+ * renders the MainPostFeed component as its primary content.
+ */
+const IndexPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <MainAppLayout>
+      <MainPostFeed />
+    </MainAppLayout>
   );
 };
 
-export default Index;
+export default IndexPage;
