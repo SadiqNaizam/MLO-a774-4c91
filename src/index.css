@@ -4,54 +4,51 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 210 17% 95%; /* #F3F4F6 */
+    --foreground: 220 10% 12%; /* #1C1E21 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 220 10% 12%; /* #1C1E21 */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%; /* #FFFFFF */
+    --popover-foreground: 220 10% 12%; /* #1C1E21 */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 217 91% 54%; /* #1877F2 */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 100%; /* #FFFFFF, consistent with surface/card */
+    --secondary-foreground: 220 10% 12%; /* #1C1E21 */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 96.1%; /* Existing light gray, for general muted elements */
+    --muted-foreground: 212 8% 41%; /* #606770 */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 40% 96.1%; /* Existing light gray, for subtle hover/accent backgrounds */
+    --accent-foreground: 222.2 47.4% 11.2%; /* Existing dark text for accent */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%; /* Existing red */
+    --destructive-foreground: 210 40% 98%; /* Existing white */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 17% 90%; /* #E4E6EB */
+    --input: 220 17% 90%; /* #E4E6EB */
+    --ring: 217 91% 54%; /* #1877F2 */
 
-    --radius: 0.5rem;
+    --radius: 0.5rem; /* Maintained existing; allows 'rounded-md' via calc(var(--radius) - 2px) to be 0.375rem */
 
-    --sidebar-background: 0 0% 98%;
+    --font-sans: Helvetica, Arial, sans-serif;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar specific variables from PRD */
+    --sidebar-background: 210 85% 55%; /* #2D89EF */
+    --sidebar-foreground: 0 0% 100%; /* #FFFFFF */
+    --sidebar-primary: 217 91% 54%; /* App's primary #1877F2 for highlights */
+    --sidebar-primary-foreground: 0 0% 100%; /* #FFFFFF */
+    --sidebar-accent: 210 85% 65%; /* Lighter sidebar background for hover */
+    --sidebar-accent-foreground: 0 0% 100%; /* #FFFFFF */
+    --sidebar-border: 210 85% 45%; /* Darker sidebar background for borders */
+    --sidebar-ring: 217 91% 54%; /* App's primary #1877F2 for focus */
   }
 
   .dark {
+    /* PRD does not specify dark mode colors. Keeping existing dark mode variables. */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -79,14 +76,17 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Assuming dark mode sidebar vars should also be adapted or defined if a dark theme is fully fleshed out */
+    /* For now, using inverted versions or placeholders if original ones are too light */
+    --sidebar-background: 240 5.9% 10%; /* Darker sidebar */
+    --sidebar-foreground: 210 40% 98%; /* Light text */
+    --sidebar-primary: 210 40% 98%; /* Light text for primary elements */
+    --sidebar-primary-foreground: 222.2 47.4% 11.2%; /* Dark text on light primary (if primary becomes light) */
+    --sidebar-accent: 240 3.7% 15.9%; /* Darker accent */
+    --sidebar-accent-foreground: 210 40% 98%; /* Light text on accent */
+    --sidebar-border: 240 3.7% 15.9%; /* Dark border */
+    --sidebar-ring: 212.7 26.8% 83.9%; /* Dark theme ring */
   }
 }
 
@@ -97,5 +97,8 @@
 
   body {
     @apply bg-background text-foreground;
+    /* font-family is applied via Tailwind's base styles by configuring theme.fontFamily.sans */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
